@@ -7,16 +7,11 @@ SECRET_KEY = 'django-insecure-secret-key'
 DEBUG = True
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "web-production-cbb4.up.railway.app",
-    "127.0.0.1",
-    "localhost",
-]
+ALLOWED_HOSTS = ['web-production-cbb4.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-cbb4.up.railway.app']
 
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://web-production-cbb4.up.railway.app",
-]
+
 
 
 
