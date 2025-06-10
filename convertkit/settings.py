@@ -9,6 +9,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'dee4-2409-40c4-3020-2ce5-5186-4fa0-bc58-4dd9.ngrok-free.app',
+    'web-production-f6541.up.railway.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
