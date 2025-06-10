@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ConvertKit Tools</title>
+  <style>
+    body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9fbff;
+    color: #222;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-size: 24px;
+    color: #5b21b6;
+}
+
+.tagline {
+    font-size: 14px;
+    color: #888;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to right, #eef2ff, #e0e7ff);
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin: 0;
+}
+
+.hero h2 .highlight {
+    color: #7c3aed;
+}
+
+.tools {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 10px;
+    gap: 30px;
+}
+
+.tool-card {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.tool-card form {
+    margin-top: 15px;
+}
+
+.tool-card input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.tool-card button {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.features {
+    background: #eef2ff;
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 24px;
+}
+
+.feature {
+    margin: 15px 0;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    padding: 20px;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">📄 <strong>ConvertKit</strong></div>
+        <div class="tagline">Professional file conversion & compression</div>
+    </header>
+
+    <section class="hero">
+        <h1>Convert & Compress Files</h1>
+        <h2><span class="highlight">Fast, Secure, Free</span></h2>
+        <p>Transform your images to PDF, convert PDFs to images, and compress files with our professional-grade tools. No uploads to servers – everything processes securely in your browser.</p>
+    </section>
+
+    <section class="tools">
+        <div class="tool-card">
+            <h3>📄 Image to PDF</h3>
+            <p>Convert JPG, PNG, and other images into high-quality PDF documents</p>
+            <form action="/image-to-pdf/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="image_files" multiple required>
+                <button type="submit">Convert</button>
+            </form>
+        </div>
+
+        <div class="tool-card">
+    <h3>📄 PDF to Image</h3>
+    <p>Extract pages from PDF files and convert them to image formats</p>
+    <form action="/pdf-to-image/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="pdf_file" accept=".pdf" required>
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if images %}
+        <h4>Converted Images:</h4>
+        {% for img in images %}
+            <div style="margin-bottom: 20px;">
+                <img src="data:image/png;base64,{{ img }}" style="max-width: 100%; border: 1px solid #ccc;" />
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+        <div class="tool-card">
+            <h3>📉 Image Compressor</h3>
+            <p>Reduce image file sizes while maintaining quality for web and storage</p>
+           <form action="/compress-image/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="image" required>
+    <button type="submit">Compress</button>
+</form>
+
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Why Choose ConvertKit?</h2>
+        <div class="feature">
+            <p>🔒 <strong>Secure Processing</strong><br>All conversions happen in your browser. Your files never leave your device.</p>
+        </div>
+        <div class="feature">
+            <p>🎯 <strong>High Quality</strong><br>Advanced algorithms ensure the best possible output quality for all conversions.</p>
+        </div>
+        <div class="feature">
+            <p>⚡ <strong>Lightning Fast</strong><br>Optimized processing engines deliver results in seconds, not minutes.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 ConvertKit. Built with modern web technologies for the best user experience.</p>
+    </footer>
+</body>
+</html>
