@@ -1,4 +1,4 @@
-gunicorn convertkit.wsgi:application
+web: gunicorn convertkit.wsgi:application
 
 
 
