@@ -5,16 +5,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-secret-key'
 DEBUG = True
+DEBUG = True
+
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'dee4-2409-40c4-3020-2ce5-5186-4fa0-bc58-4dd9.ngrok-free.app',
-    'web-production-f6541.up.railway.app'
+    "web-production-cbb4.up.railway.app",
+    "127.0.0.1",
+    "localhost",
 ]
 
+
 CSRF_TRUSTED_ORIGINS = [
-    "https://dee4-2409-40c4-3020-2ce5-5186-4fa0-bc58-4dd9.ngrok-free.app",
+    "https://web-production-cbb4.up.railway.app",
 ]
+
+
+
 
 
 INSTALLED_APPS = [

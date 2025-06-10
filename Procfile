@@ -1,1 +1,3 @@
-web: gunicorn convertkit.wsgi
+gunicorn convertkit.wsgi:application
+
+
